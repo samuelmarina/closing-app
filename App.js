@@ -1,12 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [lmao, setLmao] = useState("");
+  const closeThisShit = () => {
+    setTimeout(() => {
+      setLmao("You are ugly");
+      lmaothisisnevergoingtorun
+    }, 2000);
+  }
+
+  useEffect(() => {
+    closeThisShit();
+  },[])
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.text}>{lmao}</Text>
     </View>
   );
 }
@@ -18,4 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontSize: 50
+  }
 });
